@@ -1,0 +1,263 @@
+.header {
+            height: 55px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: white;
+            border-bottom: 1px solid rgb(222, 222, 222);
+            padding: 0 16px;
+        }
+
+        /* LEFT SECTION */
+        .left-section {
+            display: flex;
+            align-items: center;
+            min-width: 169px; /* Ensures consistent width */
+        }
+
+        .hamburger-menu {
+            height: 24px;
+            margin-right: 16px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+
+        .hamburger-menu:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .youtube-logo {
+            height: 20px;
+            cursor: pointer;
+        }
+
+        /* MIDDLE SECTION */
+        .middle-section {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 732px;
+            margin: 0 40px;
+            justify-content: center;
+        }
+
+        .search-section {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 540px;
+            position: relative;
+        }
+
+        .search-bar {
+            flex: 1;
+            height: 40px;
+            padding: 0 16px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 2px 0 0 2px;
+            outline: none;
+            background-color: white;
+            transition: border-color 0.2s ease;
+            border-top-left-radius: 19px;
+            border-bottom-left-radius: 19px;
+        }
+
+        .search-bar:focus {
+            border-color: #1c62b9;
+            box-shadow: inset 0 1px 2px rgba(27, 98, 185, 0.1);
+        }
+
+        .search-bar::placeholder {
+            color: #909090;
+        }
+
+        .search-button {
+            height: 40px;
+            width: 64px;
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 0 2px 2px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: background-color 0.2s ease;
+            border-top-right-radius: 19px;
+            border-bottom-right-radius: 19px;
+        }
+
+        .search-button:hover {
+            background-color: #f0f0f0;
+            border-color: #c6c6c6;
+        }
+
+        .search-icon {
+            height: 20px;
+            width: 20px;
+        }
+
+        .voice-search-button {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: #f8f8f8;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 16px;
+            position: relative;
+            transition: background-color 0.2s ease;
+        }
+
+        .voice-search-button:hover {
+            background-color: #e5e5e5;
+        }
+
+        .voice-search-icon {
+            height: 24px;
+            width: 24px;
+        }
+
+        /* RIGHT SECTION */
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 225px;
+            justify-content: flex-end;
+        }
+
+        .upload-icon-container,
+        .notifications-icon-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+
+        .upload-icon-container:hover,
+        .notifications-icon-container:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .upload-icon,
+        .notifications-icon {
+            height: 24px;
+            width: 24px;
+        }
+
+        .notifications-count {
+            position: absolute;
+            top: 3px;
+            right: -8px;
+            background-color: #e1002d;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 5px 2px 5px;
+            border-radius: 9px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .current-user-picture {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        /* TOOLTIPS */
+        .tooltip {
+            position: absolute;
+            background-color: rgba(96, 96, 96, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 2px;
+            font-size: 12px;
+            font-weight: 500;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            z-index: 1001;
+        }
+
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 4px solid rgba(96, 96, 96, 0.9);
+        }
+
+        .search-button:hover .tooltip,
+        .voice-search-button:hover .tooltip,
+        .upload-icon-container:hover .tooltip,
+        .notifications-icon-container:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .middle-section {
+                margin: 0 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .left-section {
+                min-width: auto;
+            }
+            
+            .middle-section {
+                margin: 0 16px;
+            }
+            
+            .right-section {
+                min-width: auto;
+                gap: 4px;
+            }
+            
+            .search-section {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-bar {
+                font-size: 14px;
+                padding: 0 12px;
+            }
+            
+            .voice-search-button {
+                display: none; /* Hide voice search on very small screens */
+            }
+        }
